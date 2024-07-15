@@ -14,8 +14,9 @@
   },
   "scripts": {
     "dev": "set PORT=%npm_package_config_ports_website% && next dev",
+    "dev:local": "set PORT=%npm_package_config_ports_website% && set NEXT_PUBLIC_LOCAL_QUILL=true && next dev",
     "dev:linux": "PORT=$npm_package_config_ports_website next dev",
-    "start": "npm run dev",
+    "start": "npm run dev:local",
     "build": "next build",
     "lint": "next lint",
     "serve": "npm run serve"
