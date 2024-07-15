@@ -74,12 +74,19 @@
   "browserslist": [
     "defaults"
   ],
+  "config": {
+    "ports": {
+      "webpack": "9080",
+      "website": "9000"
+    }
+  },
   "scripts": {
     "build": "./scripts/build production",
     "lint": "run-s lint:*",
     "lint:eslint": "eslint .",
     "lint:tsc": "tsc --noEmit --skipLibCheck",
-    "start": "[[ -z \"$npm_package_config_ports_webpack\" ]] && webpack-dev-server || webpack-dev-server --port $npm_package_config_ports_webpack",
+    "start": "IF \"%npm_package_config_ports_webpack%\"==\"\" (webpack-dev-server) ELSE (webpack-dev-server --port %npm_package_config_ports_webpack%)",
+    "start:linux": "[[ -z \"$npm_package_config_ports_webpack\" ]] && webpack-dev-server || webpack-dev-server --port $npm_package_config_ports_webpack",
     "test": "run-s test:*",
     "test:unit": "vitest --config test/unit/vitest.config.ts",
     "test:fuzz": "vitest --config test/fuzz/vitest.config.ts",

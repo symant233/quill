@@ -6,8 +6,15 @@
   "homepage": "https://quilljs.com",
   "keywords": [],
   "license": "BSD-3-Clause",
+  "config": {
+    "ports": {
+      "webpack": "9080",
+      "website": "9000"
+    }
+  },
   "scripts": {
-    "dev": "PORT=$npm_package_config_ports_website next dev",
+    "dev": "set PORT=%npm_package_config_ports_website% && next dev",
+    "dev:linux": "PORT=$npm_package_config_ports_website next dev",
     "start": "npm run dev",
     "build": "next build",
     "lint": "next lint",
