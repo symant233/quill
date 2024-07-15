@@ -349,7 +349,8 @@ class Quill {
     return modify.call(
       this,
       () => {
-        if (name === 'bold') alert(`${value}被加粗了`);
+        if (name === 'bold')
+          alert(`${window.getSelection()?.toString()}被加粗了`);
         const range = this.getSelection(true);
         let change = new Delta();
         if (range == null) return change;
