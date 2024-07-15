@@ -255,6 +255,12 @@ const IndexPage = () => {
                           bounds: '#bubble-container .ql-container',
                           modules: {
                             syntax: true,
+                            toolbar: {
+                              container : [
+                                ['bold', 'italic', 'link', 'underline'],
+                                [{ header: 1 }, { header: 2 }, 'blockquote'],
+                              ]
+                            }
                           },
                           theme: 'bubble',
                         }}
